@@ -15,6 +15,10 @@ function incrementCount() {
     counter.increment()
 }
 
+function addToCart() {
+    user.addToCart()
+}
+
 </script>
 
 <template>
@@ -22,4 +26,8 @@ function incrementCount() {
     <button @click="incrementCount">Increment</button>
 
     <p>My name is: {{ user.name }}</p>
+
+    <p>Cart Total: {{ user.cartTotal }}</p>
+
+    <button @click="addToCart">Add to cart</button>
 </template>

@@ -8,21 +8,13 @@ export const useUserStore = defineStore('userStore', () => {
 
     const cart = ref([10, 20, 30, 40, 50])
 
-    const cartTotal = computed(() => {  
-        let temp
-
-        if (cart.length > 0) {
-            cart.forEach((e) => {
-                temp += e
-            })
-        }
-
+    const cartTotal = computed(() => {
+        return cart.value.reduce((sum, item) => sum + item, 0)
     })
 
-    function addToCart(number) {
-        if (typeof 'number' === 'number')
-            cart.push(number)
+    function addToCart() {
+        cart.value.push(5)
     }
 
-    return { addToCart, cart, name }
+    return { addToCart, cart, cartTotal, name }
 })
